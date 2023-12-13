@@ -45,6 +45,7 @@ const SigninForm = () => {
 
     if (!session) {
       return toast({
+        variant: 'destructive',
         title: 'SignIn Failed! Please try again',
       });
     }
@@ -55,7 +56,10 @@ const SigninForm = () => {
       form.reset();
       navigate('/');
     } else {
-      return toast({ title: 'SignIn Failed! Please try again' });
+      return toast({
+        title: 'SignIn Failed! Please try again',
+        variant: 'destructive',
+      });
     }
   }
   return (

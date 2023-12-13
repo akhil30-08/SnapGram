@@ -5,7 +5,6 @@ const AuthLayout = () => {
   const isAuthenticated = false;
 
   const location = useLocation();
-  console.log(location.pathname);
 
   return (
     <>
