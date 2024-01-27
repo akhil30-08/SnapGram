@@ -4,6 +4,7 @@ import { Button } from '../ui/button';
 import { useSignOutAccountMutation } from '@/lib/react-query/queriesAndMutations';
 import { toast } from '../ui/use-toast';
 import { useUserContext } from '@/context/AuthContext';
+import ModeToggle from './ModeToggle';
 
 const Topbar = () => {
   const navigate = useNavigate();
@@ -21,8 +22,8 @@ const Topbar = () => {
   }, [isSuccess]);
 
   return (
-    <section className='topbar'>
-      <div className='flex-between py-4 px-5'>
+    <section className='topbar m'>
+      <div className='flex-between py-4 px-3'>
         <Link to='/' className='flex gap-3 items-center'>
           <img
             src='/assets/images/logo.svg'
@@ -32,7 +33,7 @@ const Topbar = () => {
           />
         </Link>
 
-        <div className='flex gap-4'>
+        <div className='flex gap-2'>
           <Button
             variant='ghost'
             className='shad-button_ghost'
@@ -48,6 +49,8 @@ const Topbar = () => {
               className='h-8 w-8 rounded-full'
             />
           </Link>
+
+          <ModeToggle />
         </div>
       </div>
     </section>

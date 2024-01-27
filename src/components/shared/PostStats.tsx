@@ -9,6 +9,7 @@ import {
   useLikePost,
   useSavePost,
 } from '@/lib/react-query/queriesAndMutations';
+import Loader from './Loader';
 
 type PostStatsProps = {
   post: Models.Document;
@@ -23,8 +24,9 @@ const PostStats = ({ post, userId }: PostStatsProps) => {
   const [isSaved, setIsSaved] = useState(false);
 
   const { mutate: likePost } = useLikePost();
-  const { mutate: savePost } = useSavePost();
-  const { mutate: deleteSavePost } = useDeleteSavedPost();
+  const { mutate: savePost, isPending: isSavingPost } = useSavePost();
+  const { mutate: deleteSavePost, isPending: isDeletingPost } =
+    useDeleteSavedPost();
 
   const { data: currentUser } = useGetCurrentUser();
 
@@ -92,14 +94,22 @@ const PostStats = ({ post, userId }: PostStatsProps) => {
       </div>
 
       <div className='flex gap-2'>
-        <img
-          src={isSaved ? '/assets/icons/saved.svg' : '/assets/icons/save.svg'}
-          alt='share'
-          width={20}
-          height={20}
-          className='cursor-pointer'
-          onClick={(e) => handleSavePost(e)}
-        />
+        {isSavingPost || isDeletingPost ? (
+          <Loader />
+        ) : (
+          <>
+            <img
+              src={
+                isSaved ? '/assets/icons/saved.svg' : '/assets/icons/save.svg'
+              }
+              alt='share'
+              width={20}
+              height={20}
+              className='cursor-pointer'
+              onClick={(e) => handleSavePost(e)}
+            />
+          </>
+        )}
       </div>
     </div>
   );

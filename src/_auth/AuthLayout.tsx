@@ -15,7 +15,7 @@ const AuthLayout = () => {
           <section
             className={`flex flex-1 items-center ${
               location.pathname === '/sign-up' ? 'justify-center' : ''
-            } flex-col py-5`}
+            } flex-col py-5 xl:justify-center`}
           >
             <Outlet />
           </section>
