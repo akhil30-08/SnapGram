@@ -1,4 +1,3 @@
-import { log } from 'console';
 import { Outlet, Navigate, useLocation } from 'react-router-dom';
 
 const AuthLayout = () => {
