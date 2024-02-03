@@ -291,4 +291,8 @@
   .shad-button_ghost {
     @apply flex gap-4 items-center justify-start hover:bg-transparent hover:text-white !important;
   }
+
+  .shad-button_logout {
+    @apply hover:bg-rose-600 flex gap-4 hover:text-white;
+  }
 }

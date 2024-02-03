@@ -95,7 +95,7 @@ const LeftSidebar = () => {
 
       <Button
         variant='ghost'
-        className='shad-button_ghost mt-3 transition'
+        className='shad-button_logout justify-start mt-3 transition'
         onClick={() => signOut()}
       >
         <img src='/assets/icons/logout.svg' alt='logout' />
