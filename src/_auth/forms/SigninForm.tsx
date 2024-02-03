@@ -22,7 +22,7 @@ const SigninForm = () => {
   const { toast } = useToast();
   const navigate = useNavigate();
 
-  const { checkAuthUser, isLoading: isUserLoading } = useUserContext();
+  const { checkAuthUser } = useUserContext();
 
   const { mutateAsync: signInAccount, isPending: isSigningIn } =
     useSignInAccountMutation();

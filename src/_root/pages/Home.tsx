@@ -4,7 +4,7 @@ import { useGetRecentPosts } from '@/lib/react-query/queriesAndMutations';
 import { Models } from 'appwrite';
 import { useToast } from '@/components/ui/use-toast';
 
-const Home = () => {
+const Home: any = () => {
   const { toast } = useToast();
 
   const {

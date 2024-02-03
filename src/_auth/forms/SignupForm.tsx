@@ -25,7 +25,7 @@ const SignupForm = () => {
   const { toast } = useToast();
   const navigate = useNavigate();
 
-  const { checkAuthUser, isLoading: isUserLoading } = useUserContext();
+  const { checkAuthUser } = useUserContext();
 
   const { mutateAsync: createUserAccount, isPending: isCreatingAccount } =
     useCreateUserAccountMutation();
@@ -57,6 +57,12 @@ const SignupForm = () => {
       email: values.email,
       password: values.password,
     });
+
+    if (isSigningIn) {
+      toast({
+        title: 'Loggin In...',
+      });
+    }
 
     if (!session) {
       return toast({
