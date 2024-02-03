@@ -10,11 +10,25 @@
   }
 
   body {
-    @apply bg-dark-1 text-white min-h-screen font-inter;
+    @apply dark:bg-dark-1 dark:text-white min-h-screen font-inter main-scrollbar bg-slate-100 text-slate-900;
   }
 }
 
 @layer utilities {
+  /* scrollbar for root layout */
+  .main-scrollbar::-webkit-scrollbar {
+    width: 10px;
+    background-color: rgb(122, 134, 147);
+  }
+
+  .main-scrollbar::-webkit-scrollbar-track {
+    @apply bg-gray-600;
+  }
+
+  .main-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-primary-500 rounded-lg;
+  }
+
   /* TYPOGRAPHY */
   .h1-bold {
     @apply text-[36px] font-bold leading-[140%] tracking-tighter;
@@ -219,7 +233,7 @@
 
   /* Left sidebar */
   .leftsidebar {
-    @apply hidden md:flex px-6 py-10 flex-col justify-between min-w-[270px] bg-dark-2 min-h-screen;
+    @apply hidden md:flex px-6 py-10 flex-col justify-between min-w-[270px] bg-dark-2 h-screen fixed overflow-y-auto custom-scrollbar;
   }
 
   .leftsidebar-link {
