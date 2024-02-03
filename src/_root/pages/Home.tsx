@@ -2,13 +2,22 @@ import Loader from '@/components/shared/Loader';
 import PostCard from '@/components/shared/PostCard';
 import { useGetRecentPosts } from '@/lib/react-query/queriesAndMutations';
 import { Models } from 'appwrite';
+import { useToast } from '@/components/ui/use-toast';
 
 const Home = () => {
+  const { toast } = useToast();
+
   const {
     data: posts,
     isPending: isPostLoading,
     isError: isPostError,
   } = useGetRecentPosts();
+
+  if (isPostError) {
+    return toast({
+      title: 'An error occurred! Please try again.',
+    });
+  }
 
   return (
     <div className='flex flex-1'>

@@ -22,7 +22,6 @@ import {
   useCreatePost,
   useUpdatePost,
 } from '@/lib/react-query/queriesAndMutations';
-import { updatePost } from '@/lib/appwrite/apis';
 import Loader from '../shared/Loader';
 
 type PostFormProps = {

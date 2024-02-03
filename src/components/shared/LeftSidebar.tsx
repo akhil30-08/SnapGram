@@ -8,7 +8,6 @@ import { sidebarLinks } from '@/constants';
 import { INavLink } from '@/types';
 import { Button } from '../ui/button';
 import LoadingBar from 'react-top-loading-bar';
-import { log } from 'console';
 
 const LeftSidebar = () => {
   const navigate = useNavigate();
