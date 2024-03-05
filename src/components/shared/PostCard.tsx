@@ -2,6 +2,7 @@ import { useUserContext } from '@/context/AuthContext';
 import { Models } from 'appwrite';
 import { Link } from 'react-router-dom';
 import PostStats from './PostStats';
+import { formatDate } from '@/lib/utils';
 
 type PostCardProps = {
   post: Models.Document;
@@ -16,26 +17,19 @@ const PostCard = ({ post }: PostCardProps) => {
         <div className='flex items-center gap-3'>
           <Link to={`/profile/${post.creator.$id}`}>
             <img
-              src={
-                post?.creator?.imageUrl ||
-                '/assets/icons/profile-placeholder.svg'
-              }
+              src={post?.creator?.imageUrl || '/assets/icons/profile-placeholder.svg'}
               alt='profile-logo'
               className='rounded-full w-12 lg:h-12 '
             />
           </Link>
 
           <div className='flex flex-col'>
-            <p className='base-medium lg:body-bold text-light-1'>
-              {post.creator.name}
-            </p>
-            <div className='flex-center gap-2 text-light-3'>
-              <p className='subtle-semibold lg:small-regular'>
-                {post.$createdAt}
+            <p className='base-medium lg:body-bold text-light-1'>{post.creator.name}</p>
+            <div className='flex-center gap-1 sm:gap-3 text-light-3'>
+              <p className='date-location subtle-semibold lg:small-regular'>
+                {formatDate(post?.$createdAt)}
               </p>
-              <p className='subtle-semibold lg:small-regular'>
-                {post.location}
-              </p>
+              <p className='subtle-semibold lg:small-regular truncate'>{post.location}</p>
             </div>
           </div>
         </div>

@@ -296,3 +296,9 @@
     @apply hover:bg-rose-600 flex gap-4 hover:text-white;
   }
 }
+
+@media screen and (max-width: 321px) {
+  .date-location {
+    font-size: xx-small;
+  }
+}
